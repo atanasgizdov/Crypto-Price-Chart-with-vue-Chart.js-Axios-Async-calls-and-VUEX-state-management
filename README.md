@@ -1,4 +1,4 @@
-*Any instructions/notes in italics should be removed from the template before submitting.*
+A Vue.js SPA application using the BitcoinAverage real time API and the Charts.JS visualizaiton library to graph and display real-time data of popular crypto currency
 
 # Project 3
 + By: Atanas Gizdov
