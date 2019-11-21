@@ -1,29 +1,13 @@
-# charts-api
+*Any instructions/notes in italics should be removed from the template before submitting.*
 
-## Project setup
-```
-npm install
-```
+# Project 3
++ By: Atanas Gizdov
++ Production URL: http://project3.naskogizdov.com/
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Outline of features
+*Brief list summarizing the features of your app*
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Outside resources
+ChartJS library for data visualization
+BitcoinAverage API for crypto prices
