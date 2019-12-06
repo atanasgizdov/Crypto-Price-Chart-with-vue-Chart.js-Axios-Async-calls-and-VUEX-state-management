@@ -32,7 +32,8 @@ Few small things you may want to consider for stability:
 + First and foremost, I recommend wrapping your API call in a try/catch clause. Always assume the API will be unavailable and work backwards from there
 + Next, I would recommend making the API call async, to avoid the page sitting idle, especially when calling out to external API's. Both of the above can be achieved with a simple boolean and some of the mounted keywords in Vue
 
-`async mounted () {
+````
+async mounted () {
   this.loaded = false
   Vue.axios
     .get('some_external_api')
@@ -43,7 +44,8 @@ Few small things you may want to consider for stability:
     .catch(function (error) {
       console.log(error) //or whatever other catch logic you want
     })
-}`
+}
+````
 
 
 ### Do you have any additional comments not covered in the above questions?
