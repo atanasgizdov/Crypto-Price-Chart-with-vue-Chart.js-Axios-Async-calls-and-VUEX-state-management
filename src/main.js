@@ -50,7 +50,10 @@ const router = new VueRouter({
     mode: 'history'
 })
 
+import store from './store/mainstore.js'
+
 new Vue({
+  store: store,
   router: router,
   render: h => h(App),
 }).$mount('#app')

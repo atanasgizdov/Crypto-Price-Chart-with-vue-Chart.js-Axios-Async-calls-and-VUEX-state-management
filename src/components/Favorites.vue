@@ -2,7 +2,7 @@
 
 <div id="app">
   <h1>Favorites</h1>
-  <div v-for="(coin,n) in favorite_coins" :key='n'>
+  <div v-for="(coin,n) in this.$store.state.favorite_coins" :key='n'>
     <p>
     <span class="coin">{{coin}}</span>
     <router-link :to='coin' tag="button" class = 'button'>See Asset</router-link>
@@ -30,7 +30,8 @@ export default {
   name: 'favorites',
   data() {
     return {
-      favorite_coins:[],
+      //refactored to use VUEX state manager instead of local component date
+      //favorite_coins:[],
       newCoin: null,
       coins_library: ['etherium', 'litecoin', 'bitcoincash', 'bitcoin']
       }
@@ -40,9 +41,13 @@ export default {
 
     if(localStorage.getItem('favorite_coins')) {
       try {
-        this.favorite_coins = JSON.parse(localStorage.getItem('favorite_coins'));
+        //refactored to use VUEX state manager instead of local component date
+        //this.favorite_coins = JSON.parse(localStorage.getItem('favorite_coins'));
+        this.$store.commit('setFavoriteCoins', JSON.parse(localStorage.getItem('favorite_coins')));
+        console.log(this.$store.state.favorite_coins)
       } catch(e) {
         localStorage.removeItem('favorite_coins');
+        //console.log(this.$store.state.favorite_coins)
       }
     }
   },
@@ -51,16 +56,23 @@ export default {
     addCoin() {
       // ensure they actually typed something
       if(!this.newCoin) return;
-      this.favorite_coins.push(this.newCoin);
+      //refactored to use VUEX state manager instead of local component date
+      this.$store.commit('addCoin', this.newCoin)
+      //this.favorite_coins.push(this.newCoin);
       this.newCoin = '';
       this.saveCoin();
+      console.log(this.$store.state.favorite_coins)
     },
     removeCoin(x) {
-      this.favorite_coins.splice(x,1);
+      //refactored to use VUEX state manager instead of local component date
+      this.$store.commit('removeCoin', x)
+      //this.favorite_coins.splice(x,1);
       this.saveCoin();
     },
     saveCoin() {
-      let parsed = JSON.stringify(this.favorite_coins);
+      //refactored to use VUEX state manager instead of local component date
+      let parsed = JSON.stringify(this.$store.state.favorite_coins)
+      //let parsed = JSON.stringify(this.favorite_coins);
       localStorage.setItem('favorite_coins', parsed);
     }
   }

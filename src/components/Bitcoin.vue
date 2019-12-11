@@ -49,7 +49,7 @@ export default {
           this.data.push(this.products[key].toFixed(2))
         }
         this.labels.reverse()
-        
+
 
         this.chartdata = {
         labels: this.labels,
@@ -73,6 +73,7 @@ export default {
       },
 
       this.loaded = true
+      //console.log(this.$store.state.cartCount)
       })
       .catch(function (error) {
         console.log(error)
