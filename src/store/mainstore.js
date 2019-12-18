@@ -10,7 +10,7 @@ export default new Vuex.Store({
 
     mutations: {
         setFavoriteCoins(state, payload) {
-            state.favorite_coins = payload;
+          state.favorite_coins = payload;
         },
         addCoin(state, payload) {
           state.favorite_coins.push(payload)
@@ -20,3 +20,9 @@ export default new Vuex.Store({
         }
       }
 })
+
+//for unit testing purposes
+export const mutations = {
+  increment: state => state.count++,
+  addCoin: state => state.favorite_coins.push('etherium', 'bitcoin')
+}

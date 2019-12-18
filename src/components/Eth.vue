@@ -43,7 +43,7 @@ export default {
       .get('https://apiv2.bitcoinaverage.com/indices/global/ticker/ETHUSD')
       .then((response) => {
         this.products = response.data.open
-        
+
         for (var key in this.products) {
           this.labels.push(key)
           this.data.push(this.products[key].toFixed(2))
